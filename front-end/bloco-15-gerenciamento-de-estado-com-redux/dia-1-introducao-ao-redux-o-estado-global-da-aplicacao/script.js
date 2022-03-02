@@ -1,13 +1,25 @@
 const previousButton = document.querySelector('#previous');
 const nextButton = document.querySelector('#next');
+const randomColorButton = document.querySelector('#random');
 
 const ESTADO_INICIAL = {
   colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
   index: 0,
 };
 
+function criarCor() {
+  const oneChar = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+  let cor = '#';
+  const aleatorio = () => Math.floor(Math.random() * oneChar.length);
+  for (let i = 0; i < 6; i += 1) {
+      cor += oneChar[aleatorio()];
+  }
+  return cor;
+}
+
 const action1 = {type: 'NEXT_COLOR'}
 const action2 = {type: 'PREVIOUS_COLOR'}
+const action3 = {type: 'RANDOM_COLOR'}
 
 function reducer(state = ESTADO_INICIAL, action) {
   switch (action.type) {
@@ -21,6 +33,12 @@ function reducer(state = ESTADO_INICIAL, action) {
         ...state,
         index: state.index === 0 ? state.colors.length - 1 : state.index - 1,
       } 
+    case 'RANDOM_COLOR':
+      return {
+        ...state,
+        colors: [...state.colors, criarCor()],
+        index: state.colors.length,
+      }
     default:
       return state
   }
@@ -36,7 +54,10 @@ previousButton.addEventListener('click', () => {
 });
 nextButton.addEventListener('click', () => {
   store.dispatch(action1);
-})
+});
+randomColorButton.addEventListener('click', () => {
+  store.dispatch(action3);
+});
 
 store.subscribe(() => {
   const state = store.getState();
