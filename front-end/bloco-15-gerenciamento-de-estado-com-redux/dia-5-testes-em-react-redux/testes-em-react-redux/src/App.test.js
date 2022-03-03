@@ -1,8 +1,13 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { screen } from '@testing-library/react';
 import App from './App';
+import renderWithRedux from './renderWithRedux';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('testing clicks', () => {
+  test('the page should has a button and a text 0', () => {
+    renderWithRedux(<App />);
+    const buttonAdicionar = screen.queryByText('Clique aqui');
+    expect(buttonAdicionar).toBeInTheDocument();
+    expect(screen.getByText('0')).toBeInTheDocument();
+  });
 });

@@ -7,7 +7,7 @@ class NumberClicks extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   counter: state.clickReducer.counter
 });
 
