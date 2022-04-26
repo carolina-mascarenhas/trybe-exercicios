@@ -1,0 +1,2 @@
+Ao longo do dia 20.1 entendi o que são bancos de dados, como a linguagem SQL é utilizada e como as tabelas se encaixam nos bancos de dados.
+Também montei um ambiente de desenvolvimento local para praticar SQL e utilizei o MySQL Workbench.
