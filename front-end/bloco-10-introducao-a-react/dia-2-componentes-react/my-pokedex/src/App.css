@@ -1,0 +1,11 @@
+.title {
+  text-align: center;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1400px;
+  justify-content: space-around;
+  margin: 0 auto;
+}
