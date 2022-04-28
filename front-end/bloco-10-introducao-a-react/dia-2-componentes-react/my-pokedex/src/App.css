@@ -1,20 +1,21 @@
-.title {
+.App {
   text-align: center;
 }
 
-.card {
+.pokemon {
   display: flex;
   flex-wrap: wrap;
-  align-content: space-between;
-  width: 90%;
-  /* height: 600px; */
-  margin: 40, 10px;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1 1 0;
+  min-width: 25%;
+  margin: 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
 }
 
-.pokemon-card {
-  border: 1px solid black;
-  width: 300px;
-  border-radius: 15px;
-  margin: 100px, 15px;
+.pokedex {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
 }
