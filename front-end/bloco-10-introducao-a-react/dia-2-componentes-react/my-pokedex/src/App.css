@@ -5,7 +5,16 @@
 .card {
   display: flex;
   flex-wrap: wrap;
-  width: 1400px;
-  justify-content: space-around;
-  margin: 0 auto;
+  align-content: space-between;
+  width: 90%;
+  /* height: 600px; */
+  margin: 40, 10px;
+  justify-content: center;
+}
+
+.pokemon-card {
+  border: 1px solid black;
+  width: 300px;
+  border-radius: 15px;
+  margin: 100px, 15px;
 }
