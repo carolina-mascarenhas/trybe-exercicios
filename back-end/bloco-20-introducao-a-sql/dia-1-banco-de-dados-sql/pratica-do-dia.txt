@@ -1,0 +1,4 @@
+1. Pesquisar em qualquer tabela sem utilizar uma linha de código usando o MySql Workbench
+2. Criar uma tabela sem usar código SQL usando o MySql Workbench
+3. Criar uma tabela de acordo com as restrições do exercício
+4 a 7. Análise de relações entre diferentes tabelas
