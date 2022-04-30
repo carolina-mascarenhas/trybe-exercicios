@@ -1,0 +1,12 @@
+1. docker pull debian:stable-slim
+2. docker container run -it debian:stable-slim
+3. cat /etc/*-release
+4. exit
+5. docker ps -a
+6. docker container start <ID ou name>
+7. docker ps
+8. docker container attach <ID ou name>
+9. cat /etc/debian_version
+10. exit
+11. docker container rm <ID ou name>
+12. docker container run -it --rm andrius/ascii-patrol
