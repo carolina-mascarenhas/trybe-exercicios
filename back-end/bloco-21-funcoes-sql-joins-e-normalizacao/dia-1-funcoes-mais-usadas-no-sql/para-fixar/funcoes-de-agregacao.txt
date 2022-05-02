@@ -1,0 +1,9 @@
+1. SELECT AVG(rental_duration) AS `Média de Duração` FROM sakila.film;
+
+2. SELECT MIN(rental_duration) AS `Duração Mínima` FROM sakila.film;
+
+3. SELECT MAX(rental_duration) AS `Duração Máxima` FROM sakila.film;
+
+4. SELECT SUM(rental_duration) AS `Tempo de Exibição Total` FROM sakila.film;
+
+5. SELECT COUNT(rental_duration) AS `Filmes Registrados` FROM sakila.film;
