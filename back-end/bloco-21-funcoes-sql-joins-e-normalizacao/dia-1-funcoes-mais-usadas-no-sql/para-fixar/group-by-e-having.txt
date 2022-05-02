@@ -1,0 +1,34 @@
+1.  SELECT IF(active = 0, 'inativos', 'ativos') AS `Situação`,
+    COUNT(*) AS `Quantidade de clientes`
+    FROM sakila.customer
+    GROUP BY `Situação`;
+
+2.  SELECT store_id,
+    IF(active = 0, 'inativo', 'ativo') AS `status do cliente`,
+    COUNT(*) AS `quantidade de clientes`
+    FROM sakila.customer
+    GROUP BY store_id, `status do cliente`;
+
+3.  SELECT rating,
+    AVG(rental_duration) AS `média de duração de locação`
+    FROM sakila.film
+    GROUP BY rating
+    ORDER BY `média de duração de locação` DESC;
+
+4.  SELECT district,
+    COUNT(*) AS `quantidade`
+    FROM sakila.address
+    GROUP BY district
+    ORDER BY `quantidade` DESC;
+
+5.  SELECT rating, AVG(length) AS `durações médias`
+    FROM sakila.film
+    GROUP BY rating
+    HAVING `durações médias` BETWEEN 115.0 AND 121.50
+    ORDER BY `durações médias` DESC;
+
+6.  SELECT rating, SUM(replacement_cost) AS `total do custo de substituição`
+    FROM sakila.film
+    GROUP by rating
+    HAVING `total do custo de substituição` > 3950.50
+    ORDER BY `total do custo de substituição`;
