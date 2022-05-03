@@ -1,0 +1,5 @@
+1. SELECT count(password) FROM sakila.staff;
+
+2. SELECT count(staff_id) FROM sakila.staff;
+
+3. SELECT count(email) FROM sakila.staff;
