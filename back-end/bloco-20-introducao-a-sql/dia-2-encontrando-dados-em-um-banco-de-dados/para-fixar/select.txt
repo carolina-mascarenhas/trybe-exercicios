@@ -1,0 +1,20 @@
+1. SELECT 'Carolina';
+
+2. SELECT 'Carolina', 'Mascarenhas', 'Santos', 25;
+
+3.  SELECT 'Carolina' AS nome,
+    'Mascarenhas' AS sobrenome,
+    'Santos' AS cidade_natal,
+    25 AS idade;
+
+4. SELECT 13 * 8;
+
+5. SELECT now() AS `Data Atual`;
+
+6. SELECT * FROM sakila.city;
+
+7. SELECT first_name, last_name FROM sakila.customer;
+
+8. SELECT * FROM sakila.rental;
+
+9. SELECT title, description, release_year FROM sakila.film;

@@ -1,0 +1,11 @@
+1. SELECT distinct Nome, Idade FROM Escola.Estudantes;
+
+2. 5 linhas
+
+3. SELECT distinct Nome FROM Escola.Estudantes;
+
+4. 4 linhas
+
+5. SELECT distinct Idade FROM Escola.Estudantes;
+
+6. 4 linhas

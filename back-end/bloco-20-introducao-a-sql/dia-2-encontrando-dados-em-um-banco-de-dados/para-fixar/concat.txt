@@ -1,0 +1,5 @@
+1. SELECT concat(title, ' - ', release_year) AS `Lançamento do filme` FROM sakila.film;
+
+2. SELECT concat(title, ' - ', rating) AS `Classificação` FROM sakila.film;
+
+3. SELECT concat(address, ' - ', district) AS `Endereço` FROM sakila.address;
