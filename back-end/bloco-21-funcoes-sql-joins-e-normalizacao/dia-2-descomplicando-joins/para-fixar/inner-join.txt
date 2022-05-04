@@ -1,0 +1,62 @@
+1.  SELECT actor.actor_id, actor.first_name, film_actor.film_id
+    FROM sakila.actor AS actor
+    INNER JOIN sakila.film_actor AS film_actor
+    ON actor.actor_id = film_actor.actor_id;
+
+2.  SELECT staff.first_name, staff.last_name, address.address
+    FROM sakila.staff AS staff
+    INNER JOIN sakila.address AS address
+    ON staff.address_id = address.address_id;
+
+3.  SELECT
+    customer.customer_id,
+    customer.first_name,
+    customer.email,
+    address.address_id,
+    address.address
+    FROM sakila.customer AS customer
+    INNER JOIN sakila.address AS address
+    ON customer.address_id = address.address_id
+    ORDER BY first_name DESC
+    LIMIT 100
+
+4.  SELECT
+    customer.first_name,
+    customer.email,
+    address.address_id,
+    address.address,
+    address.district
+    FROM sakila.customer AS customer
+    INNER JOIN sakila.address AS address
+    ON customer.address_id = address.address_id
+    WHERE address.district = 'California' AND customer.first_name LIKE '%rene%';
+
+5.  SELECT
+    customer.first_name,
+    COUNT(address.address)
+    FROM sakila.customer AS customer
+    INNER JOIN sakila.address AS address
+    ON customer.address_id = address.address_id
+    WHERE customer.active IS TRUE
+    GROUP BY customer.first_name
+    ORDER BY customer.first_name DESC;
+
+6.  SELECT
+    CONCAT(staff.first_name, ' ', staff.last_name) AS nome_completo,
+    AVG(payment.amount)
+    FROM sakila.staff AS staff
+    INNER JOIN sakila.payment AS payment
+    ON staff.staff_id = payment.staff_id
+    WHERE YEAR(payment.payment_date) = 2006
+    GROUP BY nome_completo;
+
+7.  SELECT
+    actor.actor_id,
+    CONCAT(actor.first_name, ' ', actor.last_name) AS nome_completo,
+    film_actor.film_id,
+    film.title
+    FROM sakila.actor AS actor
+    INNER JOIN sakila.film_actor AS film_actor
+    ON actor.actor_id = film_actor.actor_id
+    INNER JOIN sakila.film AS film
+    ON film_actor.film_id = film.film_id;
