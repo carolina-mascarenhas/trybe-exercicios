@@ -45,9 +45,10 @@ app.get('/recipes/:id', function (req, res) {
 
 app.post('/recipes', validateName, function (req, res) {
   const { id, name, price } = req.body;
-  recipes.push({ id, name, price});
+  const { username } = req.user; // Aqui estamos acessando o usuário encontrado no middleware de autenticação.
+  recipes.push({ id, name, price, chef: username });
   res.status(201).json({ message: 'Recipe created successfully!'});
-});
+});   
 
 app.put('/recipes/:id', validateName, function (req, res) {
   const { id } = req.params;
