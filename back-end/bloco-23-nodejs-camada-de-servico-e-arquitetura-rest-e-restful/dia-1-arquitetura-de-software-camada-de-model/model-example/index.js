@@ -11,22 +11,19 @@ app.get('/authors', async (_req, res) => {
 	res.status(200).json(authors);
 });
 
-app.get('/books', async (req, res, next) => {
+app.get('/books', async (_req, res) => {
 	const books = await Book.getAll();
 
 	res.status(200).json(books);
 })
 
-app.get('/books/:author_id', async (req, res, next) => {
-	const { author_id } = req.params;
-	const books = await Book.getAll();
+app.get('/books/search', async (req, res) => {
+	const { authorId } = req.query;
+	const getByAuthorId = await Book.getByAuthorId(authorId);
+	res.status(200).json(getByAuthorId);
+});
 
-	const byAuthorId = books.filter((obj) => obj.author_id === parseInt(author_id));
-
-	res.status(200).json(byAuthorId);
-})
-
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
 	console.log(`Ouvindo a porta ${PORT}`);
