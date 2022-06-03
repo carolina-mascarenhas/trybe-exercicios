@@ -1,11 +1,20 @@
-const cepValidation = (req, res, next) => {
-  const { cep } = req.params;
+const Joi = require('joi');
 
-  const cepRegex = /\d{5}-?\d{3}/;
+const schema = Joi.object({
+  cep: Joi.string().regex(/\d{5}-\d{3}/).required(),
+  logradouro: Joi.string().required(),
+  bairro: Joi.string().required(),
+  localidade: Joi.string().required(),
+  uf: Joi.string().required()
+});
 
-  if (!cepRegex.test(cep)) return res.status(400).json({ "error": { "code": "invalidData", "message": "CEP inválido" } })
+const validation = (req, res, next) => {
+  const { error } = schema.validate(req.body)
 
-  next();
+  if (!error) return next();
+
+  const messages = error.details.map((e) => e.message)
+  res.status(400).json({ "error": { "code": "invalidData", "message": messages[0] } });
 }
 
-module.exports = cepValidation;
+module.exports = validation;
