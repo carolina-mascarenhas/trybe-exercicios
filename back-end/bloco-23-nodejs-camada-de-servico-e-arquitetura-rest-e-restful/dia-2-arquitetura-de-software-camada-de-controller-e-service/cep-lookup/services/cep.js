@@ -6,7 +6,14 @@ const getCep = (cep = null) => {
   return cepModels.getCepByCep(cep);
 } 
 
-const addCep = (cep, logradouro, bairro, localidade, uf) => cepModels.addCep(cep, logradouro, bairro, localidade, uf);
+const addCep = async (cep, logradouro, bairro, localidade, uf) => {
+  const [checkCep] = await cepModels.getCepByCep(cep);
+
+  // console.log('here:', checkCep);
+  if (checkCep.length !== 0) throw new Error('CEP já existente');
+
+  return cepModels.addCep(cep, logradouro, bairro, localidade, uf);
+}
 
 module.exports = {
   getCep,

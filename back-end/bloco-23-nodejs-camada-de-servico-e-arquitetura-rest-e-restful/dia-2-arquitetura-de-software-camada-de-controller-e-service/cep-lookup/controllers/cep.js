@@ -23,8 +23,12 @@ routes.get('/:cep', middlewares.paramsValidation, async (req, res) => {
 routes.post('/', middlewares.cepValidation, async (req, res) => {
   const { cep, logradouro, bairro, localidade, uf } = req.body;
 
-  const addCep = await cepServices.addCep(cep, logradouro, bairro, localidade, uf);
-  res.status(201).json(addCep);
+  try {
+    const addCep = await cepServices.addCep(cep, logradouro, bairro, localidade, uf);
+    res.status(201).json(addCep);
+  } catch (e) {
+    res.status(409).json({ message: e.message })
+  }
 });
 
 module.exports = routes;
